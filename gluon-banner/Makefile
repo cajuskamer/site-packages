@@ -37,16 +37,16 @@ cd "$${IPKG_INSTROOT}/etc/"
 if [ -h "./banner" ] ; then
 	/bin/rm "./banner"
 elif [ -f "./banner" ] ; then
-	/bin/mv "./banner" "./banner.openwrt"
+	/bin/mv "./banner" "./banner.lede"
 fi
-/bin/ln -s "./banner.openwrt" "./banner"
+/bin/ln -s "./banner.lede" "./banner"
 
 if [ -h "./profile" ] ; then
 	/bin/rm "./profile"
 elif [ -f "./profile" ] ; then
-	/bin/mv "./profile" "./profile.openwrt"
+	/bin/mv "./profile" "./profile.lede"
 fi
-/bin/ln -s "./profile.openwrt" "./profile"
+/bin/ln -s "./profile.lede" "./profile"
 exit 0
 endef
 
@@ -56,6 +56,7 @@ cd "$${IPKG_INSTROOT}/etc/"
 [ -h "./banner" ] && /bin/rm -f "./banner"
 /bin/ln -s "./banner.gluon" "./banner"
 [ -h "./profile" ] && /bin/rm -f "./profile"
+[ -f "./profile" ] && /bin/mv "./profile" "./profile.lede"
 /bin/ln -s "./profile.gluon" "./profile"
 exit $$?
 endef
@@ -66,14 +67,14 @@ cd "$${IPKG_INSTROOT}/etc/"
 if [ -h "./banner" ] ; then
 	[[ "$$(readlink -n ./banner)" == "./banner.gluon" ]] && \
 	/bin/rm -f "./banner" && \
-	[ -f "./banner.openwrt" ] && \
-	/bin/ln -s "./banner.openwrt" "./banner"
+	[ -f "./banner.lede" ] && \
+	/bin/ln -s "./banner.lede" "./banner"
 fi
 if [ -h "./profile" ] ; then
 	[[ "$$(readlink -n ./profile)" == "./profile.gluon" ]] && \
 	/bin/rm -f "./profile" && \
-	[ -f "./profile.openwrt" ] && \
-	/bin/ln -s "./profile.openwrt" "./profile"
+	[ -f "./profile.lede" ] && \
+	/bin/ln -s "./profile.lede" "./profile"
 fi
 exit 0
 endef
@@ -81,6 +82,7 @@ endef
 define Package/gluon-banner/install
 	$(INSTALL_DIR) $(1)/etc/
 	$(INSTALL_DATA) ./files/etc/banner.gluon $(1)/etc/
+	$(INSTALL_DATA) ./files/etc/profile.gluon $(1)/etc/
 	$(CP) ./files/* $(1)/
 endef
 
