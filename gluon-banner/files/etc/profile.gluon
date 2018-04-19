@@ -55,13 +55,13 @@ service() {
 #Freifunk Content
 #
 echo " "
-echo -n "### uptime :  "
+echo -n "### uptime:  "
 uptime
-echo -n "### firmware :  "
+echo -n "### firmware:  "
 cat /lib/gluon/release
-echo -n "### Momentane Clients :    "
+echo -n "### Momentane Clients:    "
 batctl tl |grep W |wc -l
-echo -n "### Gesammt Clients im Freifunk Netz :    "
+echo -n "### Gesamt Clients im Freifunk Netz:    "
 batctl tg |grep W |wc -l
 echo    "########################################"
 batctl gwl
