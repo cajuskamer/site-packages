@@ -55,6 +55,8 @@ service() {
 #Freifunk Content
 #
 echo " "
+echo -n "### model:     "
+cat /var/sysinfo/model
 echo -n "### uptime:  "
 uptime
 echo -n "### firmware:  "
