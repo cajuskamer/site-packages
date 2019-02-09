@@ -57,7 +57,6 @@ service() {
 echo " "
 echo -n "### model:     "
 cat /var/sysinfo/model
-echo " "
 echo -n "### uptime:  "
 uptime
 echo -n "### firmware:  "
