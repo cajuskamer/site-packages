@@ -2,6 +2,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=gluon-banner
 PKG_VERSION:=1
+PKG_RELEASE:=$(GLUON_VERSION).$(GLUON_SITE_CODE)-$(GLUON_RELEASE).$(GLUON_CONFIG_VERSION)
 
 PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
 
@@ -12,9 +13,9 @@ define Package/gluon-banner
   CATEGORY:=Customization
   TITLE:=Banner file replacement
   DEPENDS:=+gluon-core
-  MAINTAINER:=cmarxmeier
-  URL:=https://github.com/cmarxmeier/freifunk-packages
-  SOURCE:=https://github.com/cmarxmeier/freifunk-packages.git
+  MAINTAINER:=cajuskamer
+  URL:=https://github.com/cajuskamer/site-packages
+  SOURCE:=https://github.com/cajuskamer/site-packages.git
 endef
 
 define Package/gluon-banner/description
