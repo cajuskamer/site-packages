@@ -59,8 +59,7 @@ echo -n "### model:     "
 cat /var/sysinfo/model
 echo -n "### uptime:  "
 uptime
-echo -n "### firmware:  "
-cat /lib/gluon/release
+echo "### firmware:  "`cat /lib/gluon/release`" (gluon: "`cat /lib/gluon/gluon-version | cut -d - -f 1`")"
 echo -n "### Momentane Clients:    "
 batctl tl |grep W |wc -l
 echo -n "### Gesamt Clients im Freifunk Netz:    "
